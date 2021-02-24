@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| nickname      | string  | null: false |
+| email         | string  | null: false |
+| password      | string  | null: false |
+| name          | string  | null: false |
+| name_ reading | string  | null: false |
+| birthday      | integer | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :orders
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column       | Type    | Options     |
+| ------------ | ------- | ----------- |
+| user_id      |         |             |
+| image        |         | null: false |
+| name         | string  | null: false |
+| text         | text    | null: false |
+| category     | integer | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one :order
 
-* Services (job queues, cache servers, search engines, etc.)
+## orders テーブル
 
-* Deployment instructions
+| Column       | Type    | Options     |
+| ------------ | ------- | ----------- |
+| user_id      |         |             |
+| item_id      |         |             |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :shippings
+
+## shippings テーブル
+
+| Column        | Type       | Options      |
+| ------------- | ---------- | ------------ |
+| order_id      |            |              |
+| post_cord     | string     | null: false  |
+| prefecture_id | integer    | null: false  |
+| building_name | string     |              |
+| tel_number    | integer    | null: false  |
+
+### Association
+
+- belongs_to :order
