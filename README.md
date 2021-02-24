@@ -2,14 +2,16 @@
 
 ## users テーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| nickname      | string  | null: false |
-| email         | string  | null: false |
-| password      | string  | null: false |
-| name          | string  | null: false |
-| name_ reading | string  | null: false |
-| birthday      | integer | null: false |
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| first_name         | string  | null: false               |
+| last_name          | string  | null: false               |
+| first_name_kana    | string  | null: false               |
+| last_name_kana     | string  | null: false               |
+| birthday           | date    | null: false               |
 
 ### Association
 
@@ -18,13 +20,16 @@
 
 ## items テーブル
 
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| user_id      |         |             |
-| image        |         | null: false |
-| name         | string  | null: false |
-| text         | text    | null: false |
-| category     | integer | null: false |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| user_id       |         |             |
+| name          | string  | null: false |
+| text          | text    | null: false |
+| category      | integer | null: false |
+| condition     | integer | null: false |
+| postage       | integer | null: false |
+| prefecture_id | integer | null: false |
+| delivery      | integer | null: false |
 
 ### Association
 
@@ -33,16 +38,16 @@
 
 ## orders テーブル
 
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| user_id      |         |             |
-| item_id      |         |             |
+| Column       | Type        | Options                        |
+| ------------ | ----------- | ------------------------------ |
+| user_id      | references  | null: false, foreign_key: true |
+| item_id      | references  | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shippings
+- has_one :shipping
 
 ## shippings テーブル
 
@@ -51,8 +56,10 @@
 | order_id      |            |              |
 | post_cord     | string     | null: false  |
 | prefecture_id | integer    | null: false  |
+| city          | string     | null: false  |
+| address       | string     | null: false  |
 | building_name | string     |              |
-| tel_number    | integer    | null: false  |
+| tel_number    | string     | null: false  |
 
 ### Association
 
