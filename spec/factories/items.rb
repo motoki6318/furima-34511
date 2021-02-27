@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :item do
-    name {'テスト商品名前'}
-    text {'商品の説明をします'}
-    price { 1000}
+    name { 'テスト商品名前' }
+    text { '商品の説明をします' }
+    price { 1000 }
     category_id { 1 }
     condition_id { 1 }
     postage_id { 1 }
