@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
       it 'ユーザーに紐づかないと保存できないこと' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
       it '画像が空だと保存できないこと' do
         @item.image = nil
@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
       it '販売価格を全角で入力すると保存できないこと' do
         @item.price = '１００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Out of setting range', 'Price Half-width number')
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
     end
   end
