@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   describe '商品投稿機能' do
     before do
-      user = FactoryBot.create(:user)
-      @item = FactoryBot.build(:item, user_id: user.id)
+      @item = FactoryBot.build(:item)
     end
     context '商品を出品できる時' do
       it '全ての値が正しく入力できていれば保存できる' do
@@ -13,9 +12,9 @@ RSpec.describe Item, type: :model do
     end
     context '商品を出品できない時' do
       it 'ユーザーに紐づかないと保存できないこと' do
-        @item.user_id = nil
+        @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User can't be blank")
+        expect(@item.errors.full_messages).to include("User must exist")
       end
       it '画像が空だと保存できないこと' do
         @item.image = nil
@@ -60,8 +59,7 @@ RSpec.describe Item, type: :model do
       it '価格についての情報がないと保存できないこと' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank", 'Price Out of setting range',
-                                                      'Price Half-width number')
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '販売価格が300より少ないと保存できないこと' do
         @item.price = 299
