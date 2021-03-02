@@ -11,7 +11,7 @@ class OrderShipping
     validates :address
     validates :tel_number, format: { with: /\A[0-9]{11}\z/, message: 'Input only number'}
   end
-
+  
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
     shipping = Shipping.create(post_cord: post_cord, prefecture_id: prefecture_id, city: city, address: address, tel_number: tel_number, order_id: order.id)
