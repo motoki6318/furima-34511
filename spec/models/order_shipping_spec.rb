@@ -6,7 +6,7 @@ RSpec.describe OrderShipping, type: :model do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
       @order_shipping = FactoryBot.build(:order_shipping, user_id: user.id, item_id: item.id)
-      sleep 0.05
+      sleep 0.2
     end
     context '商品の購入記録がされる時' do
       it '全ての値が正しく入力されていれば保存できること' do
@@ -18,6 +18,11 @@ RSpec.describe OrderShipping, type: :model do
       end
     end
     context '商品の購入記録が保存されない時' do
+      it 'tokenがないと保存できないこと' do
+        @order_shipping.token = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Token can't be blank")
+      end
       it '郵便番号が空では保存できないこと' do
         @order_shipping.post_code = ''
         @order_shipping.valid?
