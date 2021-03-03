@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # アソシエーション
   has_many :items
+  has_many :orders
   # ユーザー登録のバリデーション
   with_options presence: true do
     validates :nickname
