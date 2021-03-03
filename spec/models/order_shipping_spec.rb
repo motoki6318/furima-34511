@@ -31,12 +31,12 @@ RSpec.describe OrderShipping, type: :model do
       it '郵便番号にハイフンがないと保存できないこと' do
         @order_shipping.post_code = '1234567'
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include("Post code Input correctly")
+        expect(@order_shipping.errors.full_messages).to include('Post code Input correctly')
       end
       it '都道府県を選択しないと保存できないこと' do
         @order_shipping.prefecture_id = 0
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include("Prefecture Select")
+        expect(@order_shipping.errors.full_messages).to include('Prefecture Select')
       end
       it '市町村の入力がないと保存できないこと' do
         @order_shipping.city = ''
@@ -51,7 +51,7 @@ RSpec.describe OrderShipping, type: :model do
       it '電話番号に数値以外があると保存できないこと' do
         @order_shipping.tel_number = '090-1234-5678'
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include("Tel number Input only number")
+        expect(@order_shipping.errors.full_messages).to include('Tel number Input only number')
       end
     end
   end
