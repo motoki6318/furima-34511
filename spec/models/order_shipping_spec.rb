@@ -6,7 +6,7 @@ RSpec.describe OrderShipping, type: :model do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
       @order_shipping = FactoryBot.build(:order_shipping, user_id: user.id, item_id: item.id)
-      sleep 0.2
+      sleep 0.05
     end
     context '商品の購入記録がされる時' do
       it '全ての値が正しく入力されていれば保存できること' do
