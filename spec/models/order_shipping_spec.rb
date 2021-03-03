@@ -18,6 +18,16 @@ RSpec.describe OrderShipping, type: :model do
       end
     end
     context '商品の購入記録が保存されない時' do
+      it '紐づくuserがいないと保存できないこと' do
+        @order_shipping.user_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("User can't be blank")
+      end
+      it '紐づく商品情報がないと保存できないこと' do
+        @order_shipping.item_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Item can't be blank")
+      end
       it 'tokenがないと保存できないこと' do
         @order_shipping.token = nil
         @order_shipping.valid?
@@ -52,6 +62,16 @@ RSpec.describe OrderShipping, type: :model do
         @order_shipping.tel_number = '090-1234-5678'
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include('Tel number Input only number')
+      end
+      it '電話番号に英字が混ざっても保存できないこと' do
+        @order_shipping.tel_number = 'tel09012345'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include('Tel number Input only number')
+      end
+      it '電話番号が11桁を超えると保存できないこと' do
+        @order_shipping.tel_number = '090123456789'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Tel number Input only number")
       end
     end
   end
