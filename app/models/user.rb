@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :items
   has_many :orders
+  has_many :comments
   # ユーザー登録のバリデーション
   with_options presence: true do
     validates :nickname

@@ -1,10 +1,14 @@
 class CommentsController < ApplicationController
-  def new
-    @comments = Comment.all
-    @comment = Comment.new
+  def create
+    @comment = Comment.new(comments_params)
+    if @comment.save
+      ActionCable.server.broadcast 'comment_channel', content: @comment
+      # redirect_to "/items/#{comment.item.id}"
+    end
   end
 
-  def create
-    @comment = Comment.new(text: params[:comment][:text])
+  private
+  def comments_params
+    params.require(:comment).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 end
