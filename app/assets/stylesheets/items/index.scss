@@ -309,3 +309,206 @@ a {
 }
 
 /* //商品一覧 */
+
+@media (max-width: 1024px) {
+  //タイトル部分
+  .service-title {
+    font-size: 4vh;
+  }
+
+  .service-explain {
+    font-size: 1.3vh;
+    line-height: 28px;
+  }
+
+  .store-btn {
+    margin-top: 18px;
+  }
+  
+  .apple-btn {
+    margin-right: 1vw;
+    height: 6vh;
+  }
+  
+  .google-btn {
+    height: 6vh;
+  }
+
+  //3つの理由
+  .reason-lists>.list {
+    width: 25vh;
+    margin-bottom: 10px;
+  }
+
+  //会員登録数部分
+  .ad-explain {
+    font-size: 1.8vh;
+    line-height: 30px;
+  }
+
+  //furimaの特徴部分
+  .feature-lists>.list {
+    width: 25vh;
+  }
+
+
+
+  //商品一覧部分
+  .item-contents>.title {
+    font-size: 4vh;
+  }
+}
+
+@media (max-width: 599px) {
+
+
+  //タイトル部分
+  .service-title {
+    font-size: 2.5vh;
+  }
+
+  .service-explain {
+    font-size: 1vh;
+    line-height: 25px;
+  }
+
+  .store-btn {
+    margin-top: 18px;
+  }
+  
+  .apple-btn {
+    margin-right: 1vw;
+    height: 4vh;
+  }
+  
+  .google-btn {
+    height: 4vh;
+  }
+
+  //3つの理由
+  .reason-lists>.list {
+    width: 10vh;
+    margin-bottom: 8px;
+  }
+
+  .select-reason-contents>.title {
+    font-size: 2.2vh;
+  }
+
+  .reason-list-number {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .reason-list-text {
+    font-size: 8px;
+    line-height: 20px;
+  }
+
+  .reason-list-description {
+    font-size: 5px;
+    margin-top: 20px;
+  }
+
+  //会員登録数部分
+  .ad-explain {
+    font-size: 1.8vh;
+    line-height: 30px;
+  }
+
+  .ad-contents {
+    background-size: cover;
+    padding: 3vh 10vw;
+  }
+  
+  .ad-title {
+    font-size: 2vh;
+    margin-bottom: 1vh;
+  }
+  
+  .ad-explain {
+    font-size: 1vh;
+    line-height: 15px;
+  }
+  //furimaの特徴部分
+  .feature-contents {
+    padding: 5vh 15vw;
+  }
+  
+  .feature-contents>.title {
+    font-size: 2.5vh;
+    margin-bottom: 3vh;
+  }
+
+  .feature-lists>.list {
+    width: 10vh;
+  }
+  
+  .feature-list-text {
+    font-size: 10px;
+    line-height: 25px;
+  }
+  
+  .feature-list-description {
+    font-size: 9px;
+    margin-top: 10px;
+  }
+
+  //商品一覧部分
+  .item-contents>.title {
+    font-size: 3vh;
+  }
+
+  .item-contents {
+    padding: 10vh 0;
+  }
+
+  .item-contents>.subtitle {
+    font-size: 2.5vh;
+  }
+  
+  .item-lists {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .item-lists>.list {
+    width: 12vh;
+    margin: 0 3px;
+    padding: 1vw;
+    background-color: #FFF;
+  }
+
+  .item-img {
+    width: 12vh;
+    height: 12vh;
+  }
+
+  .sold-out>span {
+    font-size: 17px;
+  }
+
+  .item-name {
+    font-size: 1vh;
+  }
+  
+  .item-price {
+    font-size: 1vh;
+  }
+  
+  .star-icon {
+    height: 1vh;
+    width: 1vh;
+    margin-right: 0.5vw;
+  }
+  
+  .star-count {
+    font-size: 1vh;
+  }
+
+  
+}
