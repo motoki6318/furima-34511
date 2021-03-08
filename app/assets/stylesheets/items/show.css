@@ -174,14 +174,11 @@
   margin-bottom: 2vh;
 }
 
-.comment-flag {
-  display: flex;
-  justify-content: center;
+.comment {
+  margin: 0 10px;
+  text-align: left;
 }
 
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
-}
 
 .links {
   display: flex;

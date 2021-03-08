@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :delivery
   has_one_attached :image
+  has_many :comments, dependent: :destroy
 
   with_options presence: true do
     validates :image
