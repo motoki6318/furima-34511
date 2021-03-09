@@ -201,3 +201,65 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+@media (max-width: 599px) {
+  .item-show {
+    padding: 3vh 0;
+  }
+  
+  .item-box {
+    width: 70vw;
+    min-width: 100%;
+    padding: 5vh 5vw;
+  }
+
+  .item-box>.name {
+    font-size: 20px;
+  }
+  
+  .item-box-img {
+    height: 30vh;
+    width: 60vw;
+    min-height: 30vh;
+    background-color: rgb(205, 202, 202);
+    object-fit: contain;
+  }
+  
+  .item-price-box {
+    margin: 10px 0px;
+  }
+  
+  .item-price-box>.item-price {
+    font-size: 2.5vh;
+  }
+
+  .favorite-btn {
+    width: 15vw;
+    min-width: 40vw;
+  }
+  
+  .favorite-star-icon {
+    margin-right: 5px;
+  }
+  
+  .report-btn {
+    min-width: 50vw;
+  }
+
+  .comment-box {
+    width: 85vw;
+    margin: 2vh 0;
+  }
+
+  .links {
+    width: 50vw;
+  }
+
+  .change-item-btn {
+    font-size: 15px;
+  }
+
+  .another-item {
+    font-size: 12px;
+  }
+}
